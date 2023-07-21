@@ -37,15 +37,8 @@ const Search = () => {
       <div className="">
         <h1
           className={
-            "relative text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-left pb-2 bg-gradient-to-r from-tw-purple via-tw-blue to-tw-blue text-transparent bg-clip-text"
+            "relative text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-left pb-2 bg-gradient-to-r bg-title-blue text-transparent bg-clip-text"
           }
-          style={{
-            backgroundImage:
-              "url(&apos;https://pub-3890daa6d3af4fe09ab0c284ce757dd9.r2.dev/Screen Shot 2023-07-11 at 5.27.25 PM.png;)",
-            backgroundSize: "cover",
-            backgroundPosition: "left",
-            height: "100px",
-          }}
         >
           Web3.0 DID Searcher
         </h1>
@@ -87,8 +80,8 @@ const Search = () => {
           >
             2. User Search: Alternatively, users can input a username, and the
             tool will display all DIDs associated with that user. This is
-            especially useful for gaining a comprehensive view of a user
-            &apos;s presence and activities within the decentralized ecosystem.
+            especially useful for gaining a comprehensive view of a user &apos;s
+            presence and activities within the decentralized ecosystem.
           </p>
         </div>
       </div>
