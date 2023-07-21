@@ -1,0 +1,22 @@
+.logo{
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.links{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.logout{
+    padding:5px;
+    border:none;
+    background-color: #cedc00;
+    color: #00352f;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: bold;
+}
