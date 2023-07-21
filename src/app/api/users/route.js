@@ -17,6 +17,7 @@ export const GET = async (request) => {
     await connect();
 
     const posts = await Post.find(query);
+    await db.connection.close();
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (err) {
