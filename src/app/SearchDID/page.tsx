@@ -13,6 +13,7 @@ const SearchDID = () => {
   //const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const fetcher = debounce(async (...args) => {
+    // @ts-expect-error
     const res = await fetch(...args);
     return res.json();
   }, 1000);

@@ -2,7 +2,7 @@ import React from 'react'
 import AuthProvider from '@/components/AuthProvider/AuthProvider'
 
 
-const layout = ({children}) => {
+const layout = ({children}:any) => {
   return (
     <AuthProvider>
       <h1 className={""}>

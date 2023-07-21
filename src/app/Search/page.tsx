@@ -13,6 +13,7 @@ const Search = () => {
   //const fetcher = (...args) => fetch(...args).then((res) => res.json());
 
   const fetcher = debounce(async (...args) => {
+    //@ts-expect-error
     const res = await fetch(...args);
     return res.json();
   }, 1000);
@@ -40,7 +41,7 @@ const Search = () => {
           }
           style={{
             backgroundImage:
-              "url('https://pub-3890daa6d3af4fe09ab0c284ce757dd9.r2.dev/Screen Shot 2023-07-11 at 5.27.25 PM.png')",
+              "url(&apos;https://pub-3890daa6d3af4fe09ab0c284ce757dd9.r2.dev/Screen Shot 2023-07-11 at 5.27.25 PM.png;)",
             backgroundSize: "cover",
             backgroundPosition: "left",
             height: "100px",
@@ -65,7 +66,7 @@ const Search = () => {
               "text-lg font-light md:text-xl leading-relaxed text-apple-black pt-4"
             }
           >
-            The tool's functionality is twofold:
+            The tool&apos;s functionality is twofold:
           </p>
 
           <p
@@ -74,7 +75,7 @@ const Search = () => {
             }
           >
             1. DID Search: Users can input a DID, and the tool will return the
-            existing related DID along with its owner's information. This
+            existing related DID along with its owner&apos;s information. This
             feature is extremely helpful for verifying identities in a
             decentralized network, enhancing trust and security.
           </p>
@@ -86,8 +87,8 @@ const Search = () => {
           >
             2. User Search: Alternatively, users can input a username, and the
             tool will display all DIDs associated with that user. This is
-            especially useful for gaining a comprehensive view of a user's
-            presence and activities within the decentralized ecosystem.
+            especially useful for gaining a comprehensive view of a user
+            &apos;s presence and activities within the decentralized ecosystem.
           </p>
         </div>
       </div>

@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-const Button1 = ({ text, url }) => {
+const Button1 = ({ text, url }:any) => {
   return (
     <Link href={url}>
       <button

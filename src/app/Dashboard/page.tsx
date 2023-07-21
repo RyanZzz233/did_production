@@ -44,6 +44,7 @@ const Dashboard = () => {
     fetchData();
   }, [account]);
 
+  // @ts-expect-error
   const fetcher = (...args: any[]) => fetch(...args).then((res) => res.json());
 
   //const hardcodedUsername = '0x1234567890000';

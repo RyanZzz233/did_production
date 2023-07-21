@@ -1,7 +1,7 @@
 import "./globals.css";
 import { Inter } from "next/font/google";
 //@ts-ignore
-import NavBar from "@/components/navBar/NavBar";
+import NavBar from "@/components/navbar/NavBar";
 import TopNavBar from "@/components/TopNavBar/TopNavBar";
 import Footer from "@/components/footer/Footer";
 
