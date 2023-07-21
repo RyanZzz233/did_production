@@ -17,11 +17,11 @@ export const GET = async (request) => {
     await connect();
 
     const posts = await Post.find(query);
-    await db.connection.close();
+    //await db.connection.close();
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
   } catch (err) {
-    console.error(err);
+    //console.error(err);
     return new NextResponse("Database Error", { status: 500 });
   }
 };
