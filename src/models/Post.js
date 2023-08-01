@@ -36,7 +36,7 @@ const postSchema = new Schema({
 
 let model;
 if (!global.postModel ) {
-   model = mongoose.model("Post", postSchema,"Did");
+   model = mongoose.model("Post", postSchema);
    global.postModel = model;
 } else {
     model = global.postModel;

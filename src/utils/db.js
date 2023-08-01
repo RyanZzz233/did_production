@@ -2,8 +2,8 @@
 
  const connect = async () => {
     try {
-        console.log("url", process.env.MONGO)
-        await mongoose.connect(process.env.MONGO);
+        console.log("url", process.env.MONGODB_URI)
+        await mongoose.connect(process.env.MONGODB_URI);
       } catch (error) {
         console.log(error);
         throw new Error("Connection failed")
