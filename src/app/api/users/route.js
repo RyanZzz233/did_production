@@ -15,9 +15,9 @@ export const GET = async (request) => {
 
   try {
     await connect();
-    console.log(`Searching for posts with domain: ${domain}`);
+    //console.log(`Searching for posts with domain: ${domain}`);
     const posts = await Post.find(query);
-    console.log(`Found posts: ${JSON.stringify(posts)}`);
+    //console.log(`Found posts: ${JSON.stringify(posts)}`);
     //await db.connection.close();
 
     return new NextResponse(JSON.stringify(posts), { status: 200 });
