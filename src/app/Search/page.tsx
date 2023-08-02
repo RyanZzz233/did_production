@@ -37,8 +37,15 @@ const Search = () => {
       <div className="">
         <h1
           className={
-            "relative text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-left pb-2 bg-gradient-to-r bg-title-blue text-transparent bg-clip-text"
+            "relative text-3xl md:text-5xl font-extrabold leading-tight tracking-tighter text-left pb-2 bg-gradient-to-r from-tw-purple via-tw-blue to-tw-blue text-transparent bg-clip-text"
           }
+          style={{
+            backgroundImage:
+              "url('https://pub-3890daa6d3af4fe09ab0c284ce757dd9.r2.dev/Screen Shot 2023-07-11 at 5.27.25 PM.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "left",
+            height: "100px",
+          }}
         >
           Web3.0 DID Searcher
         </h1>
