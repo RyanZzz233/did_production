@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import { debounce } from "perfect-debounce";
 import Loading1 from "@/components/loading/Loading1";
+import Head from "next/head";
 
 const Search = () => {
   useEffect(() => {
@@ -34,6 +35,13 @@ const Search = () => {
 
   return (
     <div className="relative">
+      <head>
+          <title>Hello world</title>
+        <meta
+          property="og:image"
+          content="https://pub-3890daa6d3af4fe09ab0c284ce757dd9.r2.dev/logo.webp"
+        />
+      </head>
       <div className="">
         <h1
           className={
