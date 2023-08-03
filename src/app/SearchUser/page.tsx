@@ -16,18 +16,22 @@ const SearchUser = () => {
     // @ts-expect-error
     const res = await fetch(...args);
     return res.json();
-  }, 1000);
-  //debounced for 1000ms
+  }, 0);
 
   const [inputValue, setInputValue] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const { data, mutate, error, isLoading } = useSWR(
-    inputValue ? `/api/posts?owner=${encodeURIComponent(inputValue)}` : null,
+    searchInput ? `/api/posts?owner=${encodeURIComponent(searchInput)}` : null,
     fetcher
   );
 
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
+  };
+
+  const handleSearch = () => {
+    setSearchInput(inputValue);
   };
 
   // your existing handleSubmit function
@@ -76,6 +80,7 @@ const SearchUser = () => {
                   focus:border-transparent
                   shadow-sm"
                 />
+                <button onClick={handleSearch}>Search</button>
               </div>
               {isLoading ? (
                 <Loading1 />
