@@ -80,7 +80,19 @@ const SearchUser = () => {
                   focus:border-transparent
                   shadow-sm"
                 />
-                <button onClick={handleSearch}>Search</button>
+                <button className="
+                  ml-4
+                  py-2
+                  px-4
+                  bg-blue-500
+                  text-white
+                  rounded
+                  focus:outline-none
+                  focus:ring-2
+                  focus:ring-blue-400
+                  focus:border-transparent
+                  shadow-sm"
+                onClick={handleSearch}>Search</button>
               </div>
               {isLoading ? (
                 <Loading1 />
