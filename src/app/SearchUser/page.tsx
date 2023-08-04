@@ -60,44 +60,44 @@ const SearchUser = () => {
           <div className="">
             <div className="">
               {/* <h1 className="text-2xl pb-8 text-apple-black font-light">
-                All DID owned by wallet address
+                Search the owner of DID
               </h1> */}
-              <div className="pb-8">
+              <div className={styles.inputwrapper}>
                 <input
                   type="text"
-                  placeholder="Enter a Username"
+                  placeholder="Enter a username to search DID"
                   value={inputValue}
                   onChange={handleInputChange}
+                  onKeyPress={(event) => {
+                    if (event.key === 'Enter') {
+                      handleSearch();
+                    }
+                  }}
                   className="
-                  pl-4 pr-4
-                  py-2
-                  text-sm
-                  bg-white
-                  border
-                  border-gray-300
-                  rounded
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-apple-black
-                  focus:border-transparent
-                  shadow-sm"
+                    flex-grow
+                    text-sm
+                    bg-transparent
+                    outline-none
+                    border-none
+                    ml-2"
                 />
                 <button 
                   className="
-                    ml-4
-                    py-1.5
-                    px-3
-                    border-none
+                    w-8 h-8
+                    flex items-center justify-center 
                     bg-tw-black
-                    font-xs
                     text-white
+                    rounded-full
                     cursor-pointer
-                    rounded
                     transition-colors
                     duration-300
                     ease-in-out
                     hover:bg-tw-grey"
-                onClick={handleSearch}>Search</button>
+                  onClick={handleSearch}>
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" stroke="currentColor" className="w-4 h-4">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
               </div>
               {isLoading ? (
                 <Loading1 />
@@ -112,10 +112,11 @@ const SearchUser = () => {
                       /> */}
                     </div>
 
-                    <div className="flex">
+                    <div className="flex items-center">
                       <h2 className="text-lg text-apple-black font-light">
                         DID: {post.domain}
                       </h2>
+
                     </div>
                   </div>
                 ))
