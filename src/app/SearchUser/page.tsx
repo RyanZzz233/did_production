@@ -67,7 +67,7 @@ const SearchUser = () => {
               <div className={styles.inputwrapper}>
                 <input
                   type="text"
-                  placeholder="Enter a username to search DID"
+                  placeholder="Enter a user to search DID"
                   value={inputValue}
                   onChange={handleInputChange}
                   onKeyPress={(event) => {
