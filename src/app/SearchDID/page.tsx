@@ -68,6 +68,11 @@ const SearchDID = () => {
                   placeholder="Enter a DID to search owner"
                   value={inputValue}
                   onChange={handleInputChange}
+                  onKeyPress={(event) => {
+                    if (event.key === 'Enter') {
+                      handleSearch();
+                    }
+                  }}
                   className="
                     flex-grow
                     text-sm
