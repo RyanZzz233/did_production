@@ -83,18 +83,18 @@ const SearchDID = () => {
                 />
                 <button 
                   className="
-                  px-3 py-1
-                  border-none
-                  bg-tw-black
-                  font-normal
-                  cursor-pointer
-                  rounded-full
-                  transition-colors
-                  duration-300
-                  ease-in-out
-                  hover:bg-tw-grey
-                  flex items-center
-                  "
+                    ml-4
+                    py-2
+                    px-4
+                    border-none
+                    bg-tw-black
+                    font-normal
+                    cursor-pointer
+                    rounded-full
+                    transition-colors
+                    duration-300
+                    ease-in-out
+                    hover:bg-tw-grey"
                 onClick={handleSearch}>Search</button>
               </div>
               {isLoading ? (
