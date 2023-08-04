@@ -61,7 +61,7 @@ const SearchDID = () => {
               <h1 className="text-2xl pb-8 text-apple-black font-light">
                 Search the owner of DID
               </h1>
-              <div className="flex items-center justify-between bg-white rounded-full shadow-sm px-3 py-2 border border-gray-300">
+              <div className="flex items-center justify-between bg-white rounded-full shadow-sm px-3 py-2 border border-gray-300 w-64 mb-4">
   <input
     type="text"
     placeholder="Enter a DID"
