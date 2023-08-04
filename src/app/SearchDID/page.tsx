@@ -86,9 +86,9 @@ const SearchDID = () => {
                     ml-4
                     py-2
                     px-4
-                    border-white
+                    border-none
                     bg-tw-black
-                    font-normal
+                    font-sm
                     text-white
                     cursor-pointer
                     rounded
