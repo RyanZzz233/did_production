@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import useSWR from "swr";
 import { useRouter } from "next/navigation";
 import useMetamask from "@/hooks/useMetamask";
+import Loading1 from "@/components/loading/Loading1";
 
 const Dashboard = () => {
   const { account } = useMetamask();
@@ -78,7 +79,7 @@ const Dashboard = () => {
             <div className="">
               <div className="text-apple-black">
                 {isLoading ? (
-                  "Loading....."
+                  <Loading1 />
                 ) : (
                   <>
                     <div className="pb-4">
