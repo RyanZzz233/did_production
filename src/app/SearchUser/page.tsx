@@ -10,13 +10,14 @@ const SearchUser = () => {
     document.title = "Metopia | SearchUser";
   }, []);
 
-  //const fetcher = (...args) => fetch(...args).then((res) => res.json());
+  //@ts-expect-error
+  const fetcher = (...args:any) => fetch(...args).then((res) => res.json());
 
-  const fetcher = debounce(async (...args) => {
-    // @ts-expect-error
-    const res = await fetch(...args);
-    return res.json();
-  }, 0);
+  // const fetcher = debounce(async (...args) => {
+  //   // @ts-expect-error
+  //   const res = await fetch(...args);
+  //   return res.json();
+  // }, 0);
 
   const [inputValue, setInputValue] = useState("");
   const [searchInput, setSearchInput] = useState("");
