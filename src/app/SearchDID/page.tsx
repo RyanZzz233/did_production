@@ -21,9 +21,10 @@ const SearchDID = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
 
   const { data, mutate, error, isLoading } = useSWR(
-    searchInput ? `/api/users?domain=${encodeURIComponent(searchInput)}` : null,
+    searchInput ? `/api/didlocal?domain=${encodeURIComponent(searchInput)}` : null,
     fetcher
   );
 
@@ -33,6 +34,7 @@ const SearchDID = () => {
 
   const handleSearch = () => {
     setSearchInput(inputValue);
+    setHasSearched(true);
   };
 
 
@@ -102,26 +104,30 @@ const SearchDID = () => {
               {isLoading ? (
                 <Loading1 />
               ) : (
-                data?.map((post: any) => (
-                  <div className="flex items-center pb-4" key={post._id}>
-                    <div className="">
-                      {/* <img
-                        src={post.img}
-                        alt=""
-                        className="w-full h-32 object-contain"
-                      /> */}
-                    </div>
+                data?.length > 0 ? (
+                  data?.map((post: any) => (
+                    <div className="flex items-center pb-4" key={post._id}>
+                      <div className="">
+                        {/* <img
+                          src={post.img}
+                          alt=""
+                          className="w-full h-32 object-contain"
+                        /> */}
+                      </div>
 
-                    <div className="flex items-center">
-                      <h2 className="text-lg text-apple-black font-light">
-                        DID: {post.domain}
-                      </h2>
-                      <h2 className="text-sm text-apple-black font-light pl-4">
-                        Owner Address: {post.owner}
-                      </h2>
+                      <div className="flex items-center">
+                        <h2 className="text-lg text-apple-black font-light">
+                          DID: {post.domain}
+                        </h2>
+                        <h2 className="text-sm text-apple-black font-light pl-4">
+                          Owner Address: {post.owner}
+                        </h2>
+                      </div>
                     </div>
-                  </div>
-                ))
+                  ))
+                ) : (
+                  hasSearched && <div>No data matched, please retry.</div>
+                )
               )}
             </div>
           </div>

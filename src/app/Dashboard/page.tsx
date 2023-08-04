@@ -52,7 +52,7 @@ const Dashboard = () => {
   //for testing only
 
   const { data, mutate, error, isLoading } = useSWR(
-    username ? `/api/posts?owner=${encodeURIComponent(username)}` : null,
+    username ? `/api/userlocal?owner=${encodeURIComponent(username)}` : null,
     fetcher
   );
 
@@ -90,17 +90,22 @@ const Dashboard = () => {
                         {username}
                       </h2>
                     </div>
-
-                    <div className="py-10">
-                      {data?.map((post: any) => (
-                        <div className="flex pb-4" key={post._id}>
-                          <div className="flex">
-                            <h2 className="text-lg text-apple-black font-light">
-                              DID: {post.domain}
-                            </h2>
-                          </div>
-                        </div>
-                      ))}
+                    <div>
+                      <div className="py-10">
+                        {data?.length > 0 ? (
+                          data.map((post: any) => (
+                            <div className="flex pb-4" key={post._id}>
+                              <div className="flex">
+                                <h2 className="text-lg text-apple-black font-light">
+                                  DID: {post.domain}
+                                </h2>
+                              </div>
+                            </div>
+                          ))
+                        ) : (
+                          <div>No data matched, please retry.</div>
+                        )}
+                      </div>
                     </div>
                   </>
                 )}

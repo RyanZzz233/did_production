@@ -22,9 +22,10 @@ const SearchUser = () => {
 
   const [inputValue, setInputValue] = useState("");
   const [searchInput, setSearchInput] = useState("");
+  const [hasSearched, setHasSearched] = useState(false);
 
   const { data, mutate, error, isLoading } = useSWR(
-    searchInput ? `/api/posts?owner=${encodeURIComponent(searchInput)}` : null,
+    searchInput ? `/api/userlocal?owner=${encodeURIComponent(searchInput)}` : null,
     fetcher
   );
 
@@ -34,6 +35,7 @@ const SearchUser = () => {
 
   const handleSearch = () => {
     setSearchInput(inputValue);
+    setHasSearched(true);
   };
 
   // your existing handleSubmit function
@@ -99,10 +101,11 @@ const SearchUser = () => {
                   </svg>
                 </button>
               </div>
-              {isLoading ? (
-                <Loading1 />
-              ) : (
-                data?.map((post: any) => (
+            {isLoading ? (
+            <Loading1 />
+            ) : (
+              data?.length > 0 ? (
+                data.map((post: any) => (
                   <div className="flex items-center pb-4" key={post._id}>
                     <div className="">
                       {/* <img
@@ -116,11 +119,13 @@ const SearchUser = () => {
                       <h2 className="text-lg text-apple-black font-light">
                         DID: {post.domain}
                       </h2>
-
                     </div>
                   </div>
                 ))
-              )}
+              ) : (
+                hasSearched && <div>No data matched, please retry.</div>
+              )
+            )}
             </div>
           </div>
         </div>
