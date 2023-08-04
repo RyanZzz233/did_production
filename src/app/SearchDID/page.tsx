@@ -88,7 +88,7 @@ const SearchDID = () => {
                     px-4
                     border-none
                     bg-tw-black
-                    font-sm
+                    font-xs
                     text-white
                     cursor-pointer
                     rounded
