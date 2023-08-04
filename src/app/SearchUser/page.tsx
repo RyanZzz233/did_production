@@ -53,15 +53,15 @@ const SearchUser = () => {
             height: "100px",
           }}
         >
-          Web3.0 DID Searcher
+          Searcher by User
         </h1>
 
         <div className="flex flex-wrap">
           <div className="">
             <div className="">
-              <h1 className="text-2xl pb-8 text-apple-black font-light">
+              {/* <h1 className="text-2xl pb-8 text-apple-black font-light">
                 All DID owned by wallet address
-              </h1>
+              </h1> */}
               <div className="pb-8">
                 <input
                   type="text"

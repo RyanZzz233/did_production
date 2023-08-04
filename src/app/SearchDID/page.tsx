@@ -53,19 +53,19 @@ const SearchDID = () => {
             height: "100px",
           }}
         >
-          Web3.0 DID Searcher
+          Searcher by DID
         </h1>
 
         <div className="flex flex-wrap">
           <div className="">
             <div className="">
-              <h1 className="text-2xl pb-8 text-apple-black font-light">
+              {/* <h1 className="text-2xl pb-8 text-apple-black font-light">
                 Search the owner of DID
-              </h1>
+              </h1> */}
               <div className={styles.inputwrapper}>
                 <input
                   type="text"
-                  placeholder="Enter a DID"
+                  placeholder="Enter a DID to search owner"
                   value={inputValue}
                   onChange={handleInputChange}
                   className="
