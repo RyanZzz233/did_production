@@ -81,18 +81,20 @@ const SearchUser = () => {
                   focus:border-transparent
                   shadow-sm"
                 />
-                <button className="
-                  ml-4
-                  py-2
-                  px-4
-                  bg-blue-500
-                  text-white
-                  rounded
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-blue-400
-                  focus:border-transparent
-                  shadow-sm"
+                <button 
+                  className="
+                  px-3 py-1
+                  border-none
+                  bg-tw-black
+                  font-normal
+                  cursor-pointer
+                  rounded-full
+                  transition-colors
+                  duration-300
+                  ease-in-out
+                  hover:bg-tw-grey
+                  flex items-center
+                  "
                 onClick={handleSearch}>Search</button>
               </div>
               {isLoading ? (

@@ -10,25 +10,30 @@ const SearchDID = () => {
     document.title = "Metopia | SearchDID";
   }, []);
 
-  //const fetcher = (...args) => fetch(...args).then((res) => res.json());
-
-  const fetcher = debounce(async (...args) => {
-    // @ts-expect-error
-    const res = await fetch(...args);
-    return res.json();
-  }, 1000);
-  //debounced for 1000ms
+  //@ts-expect-error
+  const fetcher = (...args:any) => fetch(...args).then((res) => res.json());
+  // const fetcher = debounce(async (...args) => {
+  //   // @ts-expect-error
+  //   const res = await fetch(...args);
+  //   return res.json();
+  // }, 1000);
 
   const [inputValue, setInputValue] = useState("");
+  const [searchInput, setSearchInput] = useState("");
 
   const { data, mutate, error, isLoading } = useSWR(
-    inputValue ? `/api/users?domain=${encodeURIComponent(inputValue)}` : null,
+    searchInput ? `/api/users?domain=${encodeURIComponent(searchInput)}` : null,
     fetcher
   );
 
   const handleInputChange = (event: any) => {
     setInputValue(event.target.value);
   };
+
+  const handleSearch = () => {
+    setSearchInput(inputValue);
+  };
+
 
   // your existing handleSubmit function
 
@@ -76,6 +81,21 @@ const SearchDID = () => {
                   focus:border-transparent
                   shadow-sm"
                 />
+                <button 
+                  className="
+                  px-3 py-1
+                  border-none
+                  bg-tw-black
+                  font-normal
+                  cursor-pointer
+                  rounded-full
+                  transition-colors
+                  duration-300
+                  ease-in-out
+                  hover:bg-tw-grey
+                  flex items-center
+                  "
+                onClick={handleSearch}>Search</button>
               </div>
               {isLoading ? (
                 <Loading1 />
