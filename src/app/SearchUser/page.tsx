@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import { debounce } from "perfect-debounce";
 import Loading1 from "@/components/loading/Loading1";
+import styles from "./page.module.css";
 
 const SearchUser = () => {
   useEffect(() => {

@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import { debounce } from "perfect-debounce";
 import Loading1 from "@/components/loading/Loading1";
+import styles from './page.module.css'
 
 const SearchDID = () => {
   useEffect(() => {
@@ -61,7 +62,7 @@ const SearchDID = () => {
               <h1 className="text-2xl pb-8 text-apple-black font-light">
                 Search the owner of DID
               </h1>
-              <div className="flex items-center justify-between bg-white rounded-full shadow-sm px-3 py-2 border border-gray-300 w-96 mb-8 ">
+              <div className={styles.inputwrapper}>
                 <input
                   type="text"
                   placeholder="Enter a DID"
