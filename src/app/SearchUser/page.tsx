@@ -88,7 +88,7 @@ const SearchUser = () => {
                     px-4
                     border-none
                     bg-tw-black
-                    font-normal
+                    font-white
                     cursor-pointer
                     rounded
                     transition-colors
