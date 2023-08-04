@@ -90,7 +90,7 @@ const SearchDID = () => {
                     bg-tw-black
                     font-normal
                     cursor-pointer
-                    rounded-full
+                    rounded
                     transition-colors
                     duration-300
                     ease-in-out
