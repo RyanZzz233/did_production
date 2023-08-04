@@ -61,43 +61,47 @@ const SearchDID = () => {
               <h1 className="text-2xl pb-8 text-apple-black font-light">
                 Search the owner of DID
               </h1>
-              <div className="pb-8">
-                <input
-                  type="text"
-                  placeholder="Enter a DID"
-                  value={inputValue}
-                  onChange={handleInputChange}
-                  className="
-                  pl-4 pr-4
-                  py-2
-                  text-sm
-                  bg-white
-                  border
-                  border-gray-300
-                  rounded
-                  focus:outline-none
-                  focus:ring-2
-                  focus:ring-apple-black
-                  focus:border-transparent
-                  shadow-sm"
-                />
-                <button 
-                  className="
-                    ml-4
-                    py-1.5
-                    px-3
-                    border-none
-                    bg-tw-black
-                    font-xs
-                    text-white
-                    cursor-pointer
-                    rounded
-                    transition-colors
-                    duration-300
-                    ease-in-out
-                    hover:bg-tw-grey"
-                onClick={handleSearch}>Search</button>
-              </div>
+              <div className="pb-8 flex rounded-full overflow-hidden">
+  <input
+    type="text"
+    placeholder="Enter a DID"
+    value={inputValue}
+    onChange={handleInputChange}
+    className="
+      pl-4 pr-12
+      py-2
+      text-sm
+      bg-white
+      border
+      border-gray-300
+      rounded-full
+      focus:outline-none
+      focus:ring-2
+      focus:ring-apple-black
+      focus:border-transparent
+      shadow-sm
+      flex-grow"
+  />
+  <button 
+    className="
+      border-none
+      bg-tw-black
+      text-white
+      cursor-pointer
+      rounded-full
+      transition-colors
+      duration-300
+      ease-in-out
+      hover:bg-tw-grey
+      h-full
+      flex-shrink-0"
+    onClick={handleSearch}
+  >
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 m-auto" viewBox="0 0 20 20" fill="currentColor">
+      <path fillRule="evenodd" d="M14.484 13.66a7.5 7.5 0 111.06-1.06l4.95 4.95a.75.75 0 010 1.06l-.707.707a.75.75 0 01-1.06 0l-4.95-4.95zM7.5 12.25a4.75 4.75 0 100-9.5 4.75 4.75 0 000 9.5z" clipRule="evenodd" />
+    </svg>
+  </button>
+</div>
               {isLoading ? (
                 <Loading1 />
               ) : (
