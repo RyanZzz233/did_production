@@ -84,8 +84,8 @@ const SearchDID = () => {
                 <button 
                   className="
                     ml-4
-                    py-2
-                    px-4
+                    py-1.5
+                    px-3
                     border-none
                     bg-tw-black
                     font-xs
