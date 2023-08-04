@@ -86,7 +86,7 @@ const SearchDID = () => {
                     ml-4
                     py-2
                     px-4
-                    border-none
+                    border-white
                     bg-tw-black
                     font-normal
                     text-white
