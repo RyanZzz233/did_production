@@ -75,7 +75,7 @@ const Search = () => {
               "text-lg font-light md:text-xl leading-relaxed text-apple-black"
             }
           >
-            1. DID Search: Users can input a DID, and the tool will return the
+            1. Search by DID: Users can input a DID, and the tool will return the
             existing related DID along with its owner&apos;s information. This
             feature is extremely helpful for verifying identities in a
             decentralized network, enhancing trust and security.
@@ -86,7 +86,7 @@ const Search = () => {
               "text-lg font-light md:text-xl leading-relaxed text-apple-black"
             }
           >
-            2. User Search: Alternatively, users can input a username, and the
+            2. Search by User: Alternatively, users can input a username, and the
             tool will display all DIDs associated with that user. This is
             especially useful for gaining a comprehensive view of a user &apos;s
             presence and activities within the decentralized ecosystem.
