@@ -2,16 +2,19 @@ import Button1 from "@/components/button/Button1";
 import { Metadata } from "next";
 import Head from 'next/head';
 
+export const metadata: Metadata = {
+  title: "Metopia",
+};
 
 export default function Home() {
   const a = "a";
 
   return (
     <div className="relative">
-    <Head>
+    {/* <Head>
       <title>Metopia 233</title>
       <link rel="icon" href="/favicon.ico" />
-    </Head>
+    </Head> */}
     <div className={""}>
       <div className={"flex flex-col flex-1 gap-5"}>
         <h1
