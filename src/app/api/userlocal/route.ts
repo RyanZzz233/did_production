@@ -33,7 +33,5 @@ export function GET(request: NextRequest) {
     ? data.filter((item) => item.owner.toLowerCase() === owner.toLowerCase())
     : data;
 
-  console.error('Filtered Data:', filteredData);
-
   return NextResponse.json(filteredData);
 }
