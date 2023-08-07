@@ -2,9 +2,6 @@ import Button1 from "@/components/button/Button1";
 import { Metadata } from "next";
 import Head from 'next/head';
 
-export const metadata: Metadata = {
-  title: "Metopia",
-};
 
 export default function Home() {
   const a = "a";
