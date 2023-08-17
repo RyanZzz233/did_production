@@ -14,20 +14,18 @@ const Search = () => {
   const [searchInput, setSearchInput] = useState("");
   const [hasSearched, setHasSearched] = useState(false);
   const [page, setPage] = useState(1);
-  const [datad, setDatad] = React.useState([]);
-
+  const [datat, setDatat] = React.useState([]);
 
   useEffect(() => {
-    document.title = "Metopia | Search";
+    document.title = "Metopia | Transactions";
   }, []);
 
-  const apiEndpoint = `/api/userlocal?key=${encodeURIComponent(searchType)}&value=${encodeURIComponent(searchInput)}&page=${page}`;
+  const apiEndpoint = `/api/didlocal?key=${encodeURIComponent(searchType)}&value=${encodeURIComponent(searchInput)}&page=${page}`;
 
   const { data, mutate, error, isLoading } = useSWR(
     searchInput ? apiEndpoint : null,
     fetcher
   );
-  console.log(data);
 
   const handlePageChange = (event:any) => {
     setPage(event.target.value);
@@ -39,25 +37,25 @@ const Search = () => {
     setSearchInput("");
     setHasSearched(false);
     setPage(1);
-    setDatad([]);
+    setDatat([]);
   };
 
   const handleInputChange = (event:any) => {
     setInputValue(event.target.value);
     setHasSearched(false);
+    setDatat([]);
     setPage(1);
-    setDatad([]);
   };
 
   const handleSearch = () => {
     setSearchInput(inputValue);
     setHasSearched(true);
-    setDatad(data);
+    setDatat(data);
   };
 
   useEffect(() => {
     if (data) {
-      setDatad(data);
+      setDatat(data);
     }
   }, [data]);
 
@@ -76,13 +74,14 @@ const Search = () => {
             height: "100px",
           }}
         >
-          {/* {searchType === "domain" ? "Search by DID": "Search by User"} */}
-          Web3.0 DID Searcher
+          {/* {searchType === "domain" ? "Search DID": "Search User"} */}
+          Transactions Tracker
         </h1>
         <div className="pb-10">
           <select value={searchType} onChange={handleSearchTypeChange}>
             <option value="domain">Search by DID</option>
             <option value="owner">Search by User</option>
+            <option value="txRef">Search by Transaction ID</option>
           </select>
         </div>
         <div className="flex flex-wrap">
@@ -93,8 +92,10 @@ const Search = () => {
                   type="text"
                   placeholder={
                     searchType === "domain"
-                      ? "Enter a DID to get User"
-                      : "Enter a User to get DID"
+                    ? "Enter a DID"
+                    : searchType === "owner"
+                    ? "Enter a User"
+                    : "Enter a Transaction ID"
                   }
                   value={inputValue}
                   onChange={handleInputChange}
@@ -133,21 +134,32 @@ const Search = () => {
             <Loading1 />
             ) : (
               //@ts-ignore
-              hasSearched && datad?.Domains.length > 0 ? (
-                data.Domains.map((domain:any) => (
-                  <div className="flex items-center pb-4" key={domain.domain}>
+              hasSearched && datat?.Transactions.length > 0 ? (
+                data.Transactions.map((tx:any) => (
+                  <div className="flex items-center pb-4" key={tx.domain}>
                     <div className="">
                       <div className="flex items-center">
                         <div className="text-lg text-apple-black font-light">
                           <h2>
-                            <strong>Domain:</strong> {domain.domain}
+                            <strong>Domain:</strong> {tx.domain}
                           </h2>
                           <h2>
-                            <strong>Owner:</strong> {domain.owner}
+                            <strong>Owner:</strong> {tx.owner}
                           </h2>
                           <h2>
-                            <strong>Expiry Date:</strong> {domain.expiryDate}
+                            <strong>Expiry Date:</strong> {tx.expiryDate}
                           </h2>
+                          <h2>
+                            <strong>Transaction ID:</strong> {tx.txRef}
+                          </h2>
+                          <h2>
+                            <strong>Transaction Type:</strong> {tx.eventName}
+                          </h2>
+                          {tx.oldOwner && (
+                            <h2>
+                              <strong>Old Owner:</strong> {tx.oldOwner}
+                            </h2>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -160,13 +172,12 @@ const Search = () => {
             </div>
           </div>
         </div>
-
         <div className="my-4">
-          <label>
+        <label>
             Page:
             <select value={page} onChange={handlePageChange}>
               {/*//@ts-ignore*/}
-              {Array.from({length: datad?.TotalPages || 1}, (_, i) => i + 1).map((pageNumber) => (
+              {Array.from({length: datat?.TotalPages || 1}, (_, i) => i + 1).map((pageNumber) => (
                 <option key={pageNumber} value={pageNumber}>
                   {pageNumber}
                 </option>
@@ -174,7 +185,6 @@ const Search = () => {
             </select>
           </label>
         </div>
-
       </div>
     </div>
   );
